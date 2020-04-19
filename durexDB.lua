@@ -30,7 +30,7 @@ function DurexDatabase:new(token)
 		end
 	end
 
-  function obj:top()
+  	function obj:top()
     local result = ""
 		for temp in internet.request(self.url.."krov/users/top") do
 			result = result .. temp
@@ -39,12 +39,13 @@ function DurexDatabase:new(token)
     return result
 	end
 
-  function obj:time()
+  	function obj:time()
     for temp in internet.request(self.url.."krov/get/time") do
 			return tonumber(temp)
 		end
 	end
 
 	setmetatable(obj, self)
-	self.__index = self; return obj
+	self.__index = self; 
+	return obj
 end

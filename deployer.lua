@@ -6,6 +6,8 @@ end
 local computer = require("computer")
 local shell = require("shell")
 
+local github = "https://raw.githubusercontent.com/ddositos/OpenComputers-Casino/"
+
 local AUTORUN_CONTENT = [[require("event").shouldInterrupt = function () return false end
 os.sleep(4)
 require("shell").execute("/home/1")]]
@@ -92,14 +94,14 @@ end
 
 local function saveLauncher()
     print("Launcher saving begins...")
-    shell.execute("wget -fq https://raw.githubusercontent.com/krovyaka/OpenComputers-Casino/" .. SETTINGS.branch .. "/launcher.lua /home/1")
+    shell.execute("wget -fq " .. github .. SETTINGS.branch .. "/launcher.lua /home/1")
     print("Launcher is saved")
 end
 
 local function saveApplication()
     print("Application saving begins...")
     shell.execute(string.format(
-            "wget -fq https://raw.githubusercontent.com/krovyaka/OpenComputers-Casino/%s/apps/%s.lua /home/app.lua",
+            "wget -fq " .. github .. "%s/apps/%s.lua /home/app.lua",
             SETTINGS.branch,
             SETTINGS.application
     ))
