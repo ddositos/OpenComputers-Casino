@@ -14,22 +14,19 @@ function DurexDatabase:new(token)
 
 	function obj:get(nick)
 		for temp in internet.request(self.url.."users/get?name="..nick.."&token="..self.token) do      
-			return 288
-			--return tonumber(temp)
+			return tonumber(temp)
 		end
 	end
 
 	function obj:pay(nick,money)
 		for temp in internet.request(self.url.."users/pay?name="..nick.."&token="..self.token.."&money="..money) do
-			return true
-			--return temp == "True"
+			return temp == "True"
 		end
 	end
 
 	function obj:give(nick,money)
 		for temp in internet.request(self.url.."users/give?name="..nick.."&token="..self.token.."&money="..money) do
-			return true
-			--return temp == "True"
+			return temp == "True"
 		end
 	end
 
@@ -39,14 +36,12 @@ function DurexDatabase:new(token)
 			result = result .. temp
 		end
 	result = serialization.unserialize(result)
-	return {}
-    --return result
+    return result
 	end
 
   	function obj:time()
 	for temp in internet.request(self.url.."krov/get/time") do
-			return 228
-			--return tonumber(temp)
+			return tonumber(temp)
 		end
 	end
 
