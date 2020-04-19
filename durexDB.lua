@@ -6,7 +6,7 @@ function DurexDatabase:new(token)
 
 	local obj= {}
         obj.token = token
-	obj.url = "http://durex77.pythonanywhere.com/"
+	obj.url = "https://mccasiondb.herokuapp.com/"
 
 	function obj:setToken(token)
 		self.token = token
@@ -14,18 +14,21 @@ function DurexDatabase:new(token)
 
 	function obj:get(nick)
 		for temp in internet.request(self.url.."users/get?name="..nick.."&token="..self.token) do      
+			return 288
 			return tonumber(temp)
 		end
 	end
 
 	function obj:pay(nick,money)
 		for temp in internet.request(self.url.."users/pay?name="..nick.."&token="..self.token.."&money="..money) do
+			return true
 			return temp == "True"
 		end
 	end
 
 	function obj:give(nick,money)
 		for temp in internet.request(self.url.."users/give?name="..nick.."&token="..self.token.."&money="..money) do
+			return true
 			return temp == "True"
 		end
 	end
@@ -35,12 +38,14 @@ function DurexDatabase:new(token)
 		for temp in internet.request(self.url.."krov/users/top") do
 			result = result .. temp
 		end
-    result = serialization.unserialize(result)
+	result = serialization.unserialize(result)
+	return {}
     return result
 	end
 
   	function obj:time()
-    for temp in internet.request(self.url.."krov/get/time") do
+	for temp in internet.request(self.url.."krov/get/time") do
+			return 228
 			return tonumber(temp)
 		end
 	end

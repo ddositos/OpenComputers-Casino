@@ -119,6 +119,15 @@ local function saveApplicationInfo()
     print("Application info is saved")
 end
 
+local function savedb()
+	print("DB saving begins...")
+	shell.execute(string.format(
+            "wget -fq " .. github .. "%s/durexDB.lua /lib/durexdb.lua",
+            SETTINGS.branch
+    ))
+    print("DB is saved")
+end
+
 local function setupSettings()
     safetyStart()
     selectApplication()
@@ -130,7 +139,8 @@ local function deploy()
     saveAutorun()
     saveLauncher()
     saveApplication()
-    saveApplicationInfo()
+	saveApplicationInfo()
+	savedb()
     print('Application successfully deployed.')
 end
 
