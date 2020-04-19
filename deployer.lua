@@ -136,7 +136,7 @@ end
 
 local function deploy()
     print('The deployment of the "' .. SETTINGS.application .. '" application begins.')
-    saveAutorun()
+    --saveAutorun()
     saveLauncher()
     saveApplication()
 	saveApplicationInfo()
