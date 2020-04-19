@@ -30,19 +30,28 @@ function DurexDatabase:new(token)
 		end
 	end
 
-  	function obj:top()
-    local result = ""
-		for temp in internet.request(self.url.."krov/users/top") do
-			result = result .. temp
-		end
-	result = serialization.unserialize(result)
-    return result
+	function obj:top()
+		return {
+			"doritosxxx",
+			"doritosxxx"
+		}
+		--[[
+    	local result = ""
+			for temp in internet.request(self.url.."krov/users/top") do
+				result = result .. temp
+			end
+		result = serialization.unserialize(result)
+		return result
+		]]--
 	end
 
-  	function obj:time()
-	for temp in internet.request(self.url.."krov/get/time") do
+	function obj:time()
+		return 228
+		--[[
+		for temp in internet.request(self.url.."krov/get/time") do
 			return tonumber(temp)
 		end
+		]]--
 	end
 
 	setmetatable(obj, self)
